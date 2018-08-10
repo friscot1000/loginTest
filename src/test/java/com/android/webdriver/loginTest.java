@@ -44,6 +44,7 @@ public class loginTest {
         caps.setCapability("platformVersion", "5.1.0");
         caps.setCapability("appPackage", "co.bird.android");
         caps.setCapability("appActivity", "co.bird.android.app.feature.magiclink.activity.MagicLinkIntroActivity");
+        caps.setCapability("automationName", "uiautomator2");
         caps.setCapability("noReset", "true");
         caps.setCapability("exported", "true");
 
@@ -58,6 +59,16 @@ public class loginTest {
     }
 
     /**
+     * teardown.
+     */
+    @After
+    public void teardown()
+    {
+        driver.closeApp();
+        driver.quit();
+    }
+
+    /**
      * test email login.
      * @throws Exception
      */
@@ -68,7 +79,12 @@ public class loginTest {
         driver.findElement(By.id("co.bird.android:id/emailEditor")).sendKeys("fcontreras88+testing@gmail.com");
         Thread.sleep(1000);
         driver.findElement(By.id("co.bird.android:id/rideButton")).click();
-        Thread.sleep(8000);
+        Thread.sleep(10000);
+        String check_your_email = driver.findElement(By.id("co.bird.android:id/titleText")).getText();
+        System.out.println("<--------verifying --------->");
+        System.out.println(check_your_email);
+        System.out.println("<--------------------------->");
+        Assert.assertEquals("CHECK YOUR EMAIL", check_your_email);
     }
 
     /**
@@ -83,8 +99,11 @@ public class loginTest {
         driver.findElement(By.id("co.bird.android:id/emailEditor")).sendKeys("testing");
         Thread.sleep(1000);
         String error_message = driver.findElement(By.id("co.bird.android:id/emailEditor")).getText();
+        System.out.println("<----------------->");
         System.out.println(error_message);
+        System.out.println("<----------------->");
 //        assertEquals("000", error_message);
+//        Assert.assertEquals();
     }
 
     /**
