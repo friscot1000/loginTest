@@ -1,0 +1,54 @@
+package resources;
+
+//Info: When you write your code IntelliJ automatically adds required classes
+//Also you can select and add required classes by pressing ALT+Enter then select related classt;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+/**
+ *
+ */
+public class driver {
+    public static void main(String[] args) {
+        if("firefox") {
+            WebDriver driver = new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver", "/Users/franciscocontreras/loginTest/src/main/resources/packages/drivers/geckodriver");
+
+        }
+        if("safari") {
+
+        }
+        if("chrome") {
+            WebDriver driver = new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver", "/Users/franciscocontreras/loginTest/src/main/resources/packages/drivers/chromedriver");
+        }
+        if ("phantomjs") {
+
+
+        }
+        if('android'){
+
+        }
+        if('iphone'){
+
+        }
+        if('ie') {
+            WebDriver IEdriver = new InternetExplorerDriver();
+        }
+
+        driver.manage().window().maximize();
+    }
+
+
+}
