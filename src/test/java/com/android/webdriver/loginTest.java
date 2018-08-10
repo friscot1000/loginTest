@@ -31,7 +31,7 @@ public class loginTest {
 
 
     /**
-     *
+     * setup.
      */
     @Before
     public void setup()
@@ -57,6 +57,10 @@ public class loginTest {
         System.out.println("Appium SetUp for Android is successful and Appium Driver is launched successfully");
     }
 
+    /**
+     * test email login.
+     * @throws Exception
+     */
     @Test
     public void testCorrectEmail() throws Exception {
         System.out.println("<--------entering email--------->");
@@ -67,6 +71,10 @@ public class loginTest {
         Thread.sleep(8000);
     }
 
+    /**
+     * test error message when incorrect email is provided.
+     * @throws Exception
+     */
     @Test
     public void testWrongEmail() throws Exception
     {
@@ -79,6 +87,10 @@ public class loginTest {
 //        assertEquals("000", error_message);
     }
 
+    /**
+     * test error message when no email is provided.
+     * @throws Exception
+     */
     @Test
     public void testEmptyEmail() throws Exception
     {
